@@ -26,7 +26,7 @@ a {
   text-decoration: none;
 }
 
-.container {
+.container {  
   max-width: var(--max);
   margin: 0 auto;
   padding: 36px;
@@ -45,6 +45,8 @@ header {
 .brand {
   font-weight: 700;
   letter-spacing: -0.2px;
+  font-size: 1.4rem;      /* Make the brand text bigger */
+  padding: 24px 28px;     /* Add more padding for visual impact */
 }
 .navlinks {
   display: flex;
@@ -63,6 +65,31 @@ header {
 .navlinks a:hover {
   background: var(--glass);
   color: #fff;
+}
+
+/* Hamburger menu styles */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+}
+
+.nav-toggle-label span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  margin: 5px 0;
+  transition: 0.3s;
 }
 
 /* HERO */
@@ -175,7 +202,7 @@ h2.section-title {
   z-index: 1;
 }
 .project .screenshot {
-  height: 200px;
+  height: 250px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -183,7 +210,7 @@ h2.section-title {
   color: var(--muted);
 }
 .project .screenshot2 {
-  height: 200px;
+  height: 250px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -263,9 +290,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 980px) {
-  .hero-grid,
-  .about-grid {
-    grid-template-columns: 1fr;
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
   }
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -273,13 +301,41 @@ footer {
   .nav {
     padding: 0 12px;
   }
+  /* CONTACT section responsive layout */
+  #contact > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  #contact > div > aside {
+    order: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  #contact > div > div {
+    order: 1;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Responsive about section layout */
+  .about-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .me-photo,
+  .side-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
 }
 @media (max-width: 560px) {
   .projects-grid {
     grid-template-columns: 1fr;
   }
   .brand {
-    font-size: 14px;
+    padding-top: 24px; /* Add extra top padding for mobile view */
   }
   .intro h1 {
     font-size: 28px;
@@ -313,4 +369,75 @@ footer {
   width: auto;
   height: 225px;
   border-radius: 8px; /* optional rounded corners */
+}
+
+@media (max-width: 980px) {
+.screenshot img {
+  width: auto;
+  height: 175px;
+  border-radius: 8px; /* optional rounded corners */
+}
+
+.screenshot2 img {
+  width: auto;
+  height: 200px;
+  border-radius: 8px; /* optional rounded corners */
+}
+
+/* Responsive nav */
+@media (max-width: 768px) {
+  .navlinks {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--panel);
+    height: 100vh;
+    width: 70vw;
+    max-width: 320px;
+    box-shadow: -2px 0 16px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 32px 32px 32px;
+    gap: 32px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 100;
+  }
+  .nav-toggle:checked ~ .navlinks {
+    transform: translateX(0);
+  }
+  .nav-toggle-label {
+    display: flex;
+    z-index: 101;
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    background: transparent;
+    padding: 0; /* Remove default padding for consistency */
+  }
+  .nav-toggle:checked ~ .nav-toggle-label {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    background: transparent;
+    z-index: 102;
+    padding: 0; /* Ensure same padding when active */
+  }
+  .nav {
+    align-items: center;
+    position: relative;
+    padding-right: 32px; /* Match sidebar icon position */
+    padding-left: 32px;  /* Optional: add left padding for symmetry */
+  }
+
+  /* Make menu icon fixed when sidebar is open */
+  .nav-toggle:checked ~ .nav-toggle-label {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    background: transparent;
+    z-index: 102;
+  }
+}
 }
