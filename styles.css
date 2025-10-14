@@ -47,6 +47,7 @@ header {
   letter-spacing: -0.2px;
   font-size: 1.4rem;      /* Make the brand text bigger */
   padding: 24px 28px;     /* Add more padding for visual impact */
+  margin-left: -28px;
 }
 .navlinks {
   display: flex;
@@ -322,12 +323,32 @@ footer {
     display: flex !important;
     flex-direction: column !important;
     gap: 24px !important;
+    width: 80vw !important;
+    max-width: 80vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
   }
-  .me-photo,
+  .me-photo {
+    width: 80vw !important;
+    max-width: 80vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
   .side-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
+    width: 80vw !important;
+    max-width: 80vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 @media (max-width: 560px) {
@@ -336,6 +357,7 @@ footer {
   }
   .brand {
     padding-top: 24px; /* Add extra top padding for mobile view */
+    margin-left: -25px;
   }
   .intro h1 {
     font-size: 28px;
