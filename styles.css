@@ -236,10 +236,11 @@ h2.section-title {
   align-items: start;
   position: relative;
 }
+
 .me-photo {
-  height: 220px;
-  width: 220px;
-  border-radius: 16px;
+  height: 300px;
+  width: auto;
+  border-radius: 24px;
   background: linear-gradient(180deg, #0b0c0f, #121214);
   display: flex;
   align-items: center;
@@ -463,3 +464,13 @@ footer {
   }
 }
 }
+
+/* Removes the grey box behind me-photo images */
+
+/* .project .screenshot,
+.project .screenshot2,
+.me-photo {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+} */
