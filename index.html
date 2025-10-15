@@ -138,7 +138,7 @@
       </section>
 
       <!-- PROJECTS -->
-      <section id="projects">
+      <!-- <section id="projects">
         <h2 class="section-title reveal">Selected projects</h2>
         <div class="projects-grid">
           <article class="project reveal">
@@ -236,7 +236,18 @@
             </p>
           </article>
         </div>
-      </section>
+      </section> -->
+
+      <!-- PROJECTS CAROUSEL -->
+       <section id="projects">
+        <h2 class="section-title reveal">Selected projects</h2>
+    <section id="projects-carousel" class="projects-carousel">
+        <div class="carousel-projects" id="carouselProjects"></div> <!-- Dynamic project cards will be inserted here -->
+        <div >
+            <button class="btn primary" id="prevProject">Prev</button> <!-- Previous project button -->
+            <button class="btn primary" id="nextProject">Next</button> <!-- Next project button -->
+        </div>
+    </section>
 
       <!-- ABOUT -->
       <section id="about">
@@ -366,7 +377,89 @@
       </footer>
     </main>
 
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
     <!-- Scripts -->
     <script src="script.js"></script>
+
+    <!-- SCRIPTS -->
+    <script>
+        AOS.init(); // Initialize AOS animations
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to determine how many projects to display based on screen size
+            function getVisibleCount() {
+                return window.innerWidth <= 600 ? 1 : 3;
+            }
+
+            // Array of project objects
+            const allProjects = [
+                { icon: "/Imgs/ryvex-logo.png", title: "Ryvex", desc: "Ryvex is a discord bot built to help you manage your discord server and also the members.", link: "https://ryvex.gr" },
+                { icon: "Imgs/betl-logo.png", title: "Betl", desc: "Betl provides innovative battery solutions focused on mobile and on-the-go charging.", link: "https://antonisrsmn.github.io/Betl-Greece/" },
+                { icon: "Imgs/Unlike-Logo-White.png", title: "Unlike", desc: "A real-time global chat platform for open, secure, and anonymous communication online.", link: "https://unlike.gr" },
+                { icon: "Imgs/eshop-img.jpg", title: "E-Shop Template", desc: "Modern e-shop template with responsive design and clean code structure.", link: "https://antonisrsmn.github.io/Eshop-Template/" },
+                { icon: "Imgs/stefania.png", title: "Στεφανια Δρακου", desc: "A clean and modern website designed for a psychology professional, highlighting services.", link: "https://stefaniadrakou.gr/" },
+                { icon: "Imgs/weather-app.png", title: "Weather App", desc: "Live weather updates with a clean design and accurate real-time data integration.", link: "https://antonisrsmn.github.io/Weather-App/" },
+                { icon: "Imgs/Calculator.png", title: "Calculator", desc: "Clean, minimalist calculator app built for precision, simplicity, and consistent performance.", link: "https://antonisrsmn.github.io/Calculator-App/" }
+            ];
+
+            let currentProject = 0; // Index of the currently visible project
+            const carousel = document.getElementById('carouselProjects'); // Carousel container
+
+            // Function to render visible projects in the carousel
+            function renderProjects(startIndex) {
+                const visibleCount = getVisibleCount();
+                let html = '';
+                for (let i = 0; i < visibleCount; i++) {
+                    const idx = (startIndex + i) % allProjects.length;
+                    const p = allProjects[idx];
+                    html += `
+                        <div class="project">
+                            <div class="project-icon">
+                                <img src="${p.icon}" alt="${p.title} Logo">
+                            </div>
+                            <h3>${p.title}</h3>
+                            <p>${p.desc}</p>
+                            <button class="btn primary" onclick="window.open('${p.link}','_blank')">Website</button>
+                        </div>
+                    `;
+                }
+                carousel.innerHTML = html;
+            }
+
+            // Event listeners for carousel navigation
+            document.getElementById('nextProject').onclick = function() {
+                currentProject = (currentProject + 1) % allProjects.length;
+                renderProjects(currentProject);
+            };
+
+            document.getElementById('prevProject').onclick = function() {
+                currentProject = (currentProject - 1 + allProjects.length) % allProjects.length;
+                renderProjects(currentProject);
+            };
+
+            // Re-render projects on window resize
+            window.addEventListener('resize', () => renderProjects(currentProject));
+
+            renderProjects(currentProject); // Initial render
+        });
+
+        // Preload all project images
+        const projectImages = [
+            "/Imgs/ryvex-logo.png",
+            "Imgs/betl-logo.png",
+            "Imgs/Unlike-Logo-White.png",
+            "Imgs/eshop-img.jpg",
+            "https://stefaniadrakou.gr/Imgs/cv-photo.webp",
+            "Imgs/weather-app.png",
+            "Imgs/Calculator.png"
+        ];
+        projectImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    </script>
   </body>
 </html>
