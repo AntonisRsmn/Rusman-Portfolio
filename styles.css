@@ -606,7 +606,6 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;  /* ✅ limit lines of text */
   -webkit-box-orient: vertical;
 }
 
@@ -622,12 +621,7 @@ footer {
   .carousel-projects .project {
     height: 360px;         /* ✅ fixed height for mobile */
   }
-
-  .carousel-projects .project p {
-    -webkit-line-clamp: 5; /* allow a bit more lines on mobile */
-  }
 }
-
 
 .project-icon {
   width: 100%;
