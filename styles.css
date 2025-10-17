@@ -112,6 +112,68 @@ header {
   transition: 0.3s;
 }
 
+/* Centered, perfectly aligned hamburger -> X */
+
+/* container */
+.nav-toggle-label {
+  display: none;               /* still hidden on large screens */
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  cursor: pointer;
+  z-index: 102;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+}
+
+/* bars */
+.nav-toggle-label span {
+  position: absolute;          /* absolute so each bar can be perfectly centered */
+  left: 50%;
+  transform-origin: center;    /* rotate around its center */
+  transform: translateX(-50%); /* center horizontally */
+  width: 24px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform 0.35s cubic-bezier(.2,.9,.3,1), opacity 0.25s ease, background 0.25s ease;
+}
+
+/* vertical placement of the three bars */
+.nav-toggle-label span:nth-child(1) { top: 50%; transform: translate(-50%, -9px); }
+.nav-toggle-label span:nth-child(2) { top: 50%; transform: translate(-50%, -1px); }
+.nav-toggle-label span:nth-child(3) { top: 50%; transform: translate(-50%, 7px); }
+
+/* When menu is open -> form the X, keep rotation centered (no extra translate) */
+.nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+  transform: translate(-50%, -0px) rotate(45deg);
+}
+.nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+  opacity: 0;
+  transform: translate(-50%, -1px) scale(0.9);
+}
+.nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+  transform: translate(-50%, -0px) rotate(-45deg);
+}
+
+/* Optional: accent color when active for first/third */
+.nav-toggle:checked + .nav-toggle-label span:nth-child(1),
+.nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+  background: var(--accent);
+}
+
+/* show on small screens */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: flex;
+  }
+}
+
+
+
 /* HERO */
 .hero {
   min-height: 76vh;
@@ -266,6 +328,7 @@ h2.section-title {
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.035);
   margin: 0 auto; /* Center horizontally in its parent */
+  margin-top: -100px;
 }
 
 /* CONTACT */
@@ -511,17 +574,60 @@ footer {
     margin-bottom: 50px;
 }
 
+/* Common card styling */
 .carousel-projects .project {
-    flex: 1 1 0;
-    min-width: 250px;
-    max-width: 320px;
-    background: var(--panel); /* Use your dark panel color */
-    color: #fff;              /* Ensure text is visible */
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
-    padding: 24px 18px;
-    transition: transform 0.4s, box-shadow 0.4s;
+  flex: 1 1 0;
+  min-width: 250px;
+  max-width: 320px;
+  background: var(--panel);
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 24px 18px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;           /* ✅ fixed height for desktop */
 }
+
+/* Keep the image and text organized */
+.carousel-projects .project .project-icon {
+  flex-shrink: 0;
+}
+
+.carousel-projects .project h3 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.carousel-projects .project p {
+  flex-grow: 1;           /* pushes the button to the bottom */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;  /* ✅ limit lines of text */
+  -webkit-box-orient: vertical;
+}
+
+.carousel-projects .project .btn.primary {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+/* On smaller screens, use a slightly smaller height */
+@media (max-width: 768px) {
+  .carousel-projects .project {
+    height: 360px;         /* ✅ fixed height for mobile */
+  }
+
+  .carousel-projects .project p {
+    -webkit-line-clamp: 5; /* allow a bit more lines on mobile */
+  }
+}
+
 
 .project-icon {
   width: 100%;
@@ -559,3 +665,77 @@ footer {
         margin: 0 auto;
     }
 }
+
+/* Base transition for all buttons */
+.btn {
+  transition: all 0.25s ease;
+}
+
+/* Hover effect for normal buttons */
+.btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for primary buttons (green accent) */
+.btn.primary:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(57, 217, 138, 0.3),
+    rgba(57, 217, 138, 0.15)
+  );
+  border-color: rgba(57, 217, 138, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(57, 217, 138, 0.3);
+}
+
+/* Optional: small press effect */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Contact form fields */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: transparent;
+  color: #e6efef;
+  transition: all 0.25s ease;
+  outline: none; /* remove default blue outline */
+}
+
+/* Hover effect */
+input:hover,
+textarea:hover {
+  border-color: rgba(57, 217, 138, 0.3);  /* subtle green glow */
+  background: rgba(255, 255, 255, 0.02);  /* slight highlight */
+}
+
+/* Focus effect (when clicked/active) */
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  background: rgba(57, 217, 138, 0.05);
+  box-shadow: 0 0 0 3px rgba(57, 217, 138, 0.15);
+}
+
+/* Placeholder color for better readability */
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+  transition: color 0.2s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+

@@ -36,4 +36,3 @@ document.getElementById("resume-link").addEventListener("click", (e) => {
   e.preventDefault();
   alert("Add your resume PDF link here.");
 });
-
