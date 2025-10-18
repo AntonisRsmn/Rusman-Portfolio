@@ -266,6 +266,7 @@ h2.section-title {
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.035);
   margin: 0 auto; /* Center horizontally in its parent */
+  margin-top: -100px;
 }
 
 /* CONTACT */
@@ -362,6 +363,7 @@ footer {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    margin-top: 0px;
   }
 
   .side-card {
@@ -590,4 +592,96 @@ footer {
     .project {
         margin: 0 auto;
     }
+}
+
+/* Contact form fields */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: transparent;
+  color: #e6efef;
+  transition: all 0.25s ease;
+  outline: none; /* remove default blue outline */
+}
+
+/* Hover effect */
+input:hover,
+textarea:hover {
+  border-color: rgba(57, 217, 138, 0.3);  /* subtle green glow */
+  background: rgba(255, 255, 255, 0.02);  /* slight highlight */
+}
+
+/* Focus effect (when clicked/active) */
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  background: rgba(57, 217, 138, 0.05);
+  box-shadow: 0 0 0 3px rgba(57, 217, 138, 0.15);
+}
+
+/* Placeholder color for better readability */
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+  transition: color 0.2s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Default link style */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+/* ✅ Hover effect: αλλαγή χρώματος σε πιο έντονο πράσινο */
+a:hover {
+  color: #6effb3; /* φωτεινότερη πράσινη απόχρωση */
+  transform: translateY(-1px); /* διακριτική κίνηση */
+}
+
+/* Active state (π.χ. tap σε κινητό) */
+a:active {
+  transform: translateY(0);
+  color: var(--accent);
+}
+
+/* Base transition for all buttons */
+.btn {
+  transition: all 0.25s ease;
+}
+
+/* Hover effect for normal buttons */
+.btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for primary buttons (green accent) */
+.btn.primary:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(57, 217, 138, 0.3),
+    rgba(57, 217, 138, 0.15)
+  );
+  border-color: rgba(57, 217, 138, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(57, 217, 138, 0.3);
+}
+
+/* Optional: small press effect */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
