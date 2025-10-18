@@ -243,10 +243,19 @@
         <h2 class="section-title reveal">Selected projects</h2>
     <section id="projects-carousel" class="projects-carousel">
         <div class="carousel-projects" id="carouselProjects"></div> <!-- Dynamic project cards will be inserted here -->
-        <div >
-            <button class="btn primary" id="prevProject">Prev</button> <!-- Previous project button -->
-            <button class="btn primary" id="nextProject">Next</button> <!-- Next project button -->
-        </div>
+        <button class="carousel-btn" id="prevProject" aria-label="Previous Project">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+</button>
+
+<button class="carousel-btn" id="nextProject" aria-label="Next Project">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</button>
+
+
     </section>
 
       <!-- ABOUT -->
