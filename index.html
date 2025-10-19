@@ -42,6 +42,9 @@
           <a href="Pdfs/Rusman-CV.pdf" target="_blank" id="resume-link"
             >Resume</a
           >
+          <!-- <button id="theme-toggle" class="btn">
+            🌞/🌙
+          </button> -->
         </nav>
       </div>
     </header>
@@ -470,5 +473,41 @@
             img.src = src;
         });
     </script>
+
+    <!-- <script>
+    const toggleBtn = document.querySelector('#theme-toggle');
+    const body = document.body;
+
+    // Update button icon based on theme
+    function updateThemeIcon() {
+      if (body.classList.contains('light-theme')) {
+        toggleBtn.textContent = '🌞'; // Light mode
+      } else {
+        toggleBtn.textContent = '🌙'; // Dark mode
+      }
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+      body.classList.add('light-theme');
+    } else {
+      body.classList.remove('light-theme');
+    }
+    updateThemeIcon();
+
+    // Toggle theme on click
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+
+      // Save preference
+      if (body.classList.contains('light-theme')) {
+        localStorage.setItem('theme', 'light');
+      } else {
+        localStorage.setItem('theme', 'dark');
+      }
+
+      updateThemeIcon();
+    });
+    </script> -->
   </body>
 </html>

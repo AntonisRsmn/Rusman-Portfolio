@@ -1,6 +1,6 @@
-/* :root {
-  --bg: #0b0c0f;
-  --panel: #0f1114;
+:root {
+  --bg: #0d0d0d;
+  --panel:  #0d0d0d;
   --muted: #9aa3ad;
   --accent: #39d98a;
   --glass: rgba(255, 255, 255, 0.03);
@@ -8,18 +8,17 @@
   --max: 1100px;
   color-scheme: dark;
 }
-*/
 
-:root {
-  --bg: #fffffe;
-  --panel: #fffffe;
-  --muted: #9aa3ad;
+/* .light-theme {
+  --bg: #ffffff;
+  --panel: linear-gradient(180deg, rgba(0, 0, 0, 0.02));
+  --muted: #555555;
   --accent: #39d98a;
-  --glass: rgba(255, 255, 255, 0.03);
+  --glass: rgba(0, 0, 0, 0.03);
   --radius: 14px;
   --max: 1100px;
   color-scheme: light;
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -31,7 +30,7 @@ body {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
   color: #dbe6e6;
-  background: #0d0d0d; /* Solid black background */
+  background: var(--bg); /* Solid black background */
   scroll-behavior: smooth;
 }
 a {
@@ -155,7 +154,7 @@ header {
 .side-card {
   grid-column: 2; /* ensure it stays in the second column */
   grid-row: 1;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);;
   padding: 22px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.04);
@@ -272,7 +271,7 @@ h2.section-title {
   height: 300px;
   width: auto;
   border-radius: 24px;
-  background: linear-gradient(180deg, #0b0c0f, #121214);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -529,7 +528,7 @@ footer {
     flex: 1 1 0;
     min-width: 250px;
     max-width: 320px;
-    background: var(--panel); /* Use your dark panel color */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);; /* Use your dark panel color */
     color: #fff;              /* Ensure text is visible */
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
@@ -721,7 +720,7 @@ a:active {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--panel);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
   color: var(--accent);
   border: 1px solid rgba(57, 217, 138, 0.4);
   border-radius: 50%;
@@ -769,7 +768,7 @@ a:active {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--panel);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
   color: var(--accent);
   border: 1px solid rgba(57, 217, 138, 0.4);
   border-radius: 50%;
@@ -832,7 +831,7 @@ a:active {
   flex: 1 1 0;
   min-width: 250px;
   max-width: 320px;
-  background: var(--panel);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
   color: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
