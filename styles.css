@@ -1,44 +1,131 @@
 :root {
+  /* Dark theme (default) */
   --bg: #0d0d0d;
-  --panel:  #0d0d0d;
+  --panel: #141414;
   --muted: #9aa3ad;
   --accent: #39d98a;
   --glass: rgba(255, 255, 255, 0.03);
+  --text: #dbe6e6;
+  --text-strong: #ffffff;
   --radius: 14px;
   --max: 1100px;
   color-scheme: dark;
 }
 
-/* .light-theme {
-  --bg: #fffffe;
-  --panel: #fffffe;
-  --muted: #000;
-  --accent: #00ff80;
-  --glass: rgba(0, 0, 0, 0.03);
+.light-theme {
+  /* Light theme */
+  --bg: #f9f9f9;
+  --panel: #ffffff;
+  --muted: #333333;
+  --accent: #00b873;
+  --glass: rgba(0, 0, 0, 0.04);
+  --text: #1e1e1e;
+  --text-strong: #000000;
   --radius: 14px;
   --max: 1100px;
   color-scheme: light;
-} */
+}
+
+/* Common card style for dark theme */
+.side-card,
+.contact-card,
+.me-photo {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Light theme card adjustments */
+.light-theme .side-card,
+.light-theme .contact-card,
+.light-theme .me-photo {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.03), transparent);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #000; /* Ensure text is readable */
+}
+
+/* Inputs and textarea card style - dark theme */
+input,
+textarea {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius);
+  color: #e6efef; /* text color for dark theme */
+  transition: all 0.3s ease;
+}
+
+/* Hover and focus states */
+input:hover,
+textarea:hover {
+  border-color: rgba(57, 217, 138, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  background: rgba(57, 217, 138, 0.05);
+  box-shadow: 0 0 0 3px rgba(57, 217, 138, 0.15);
+}
+
+/* Light theme overrides */
+.light-theme input,
+.light-theme textarea {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.03), transparent);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #000; /* text color for light theme */
+}
+
+.light-theme input:hover,
+.light-theme textarea:hover {
+  border-color: var(--accent);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.light-theme input:focus,
+.light-theme textarea:focus {
+  border-color: var(--accent);
+  background: rgba(0, 255, 128, 0.05);
+  box-shadow: 0 0 0 3px rgba(0, 255, 128, 0.15);
+}
+
+/* Dark theme (default) */
+.nav-toggle-label svg rect {
+  fill: #fff; /* white bars */
+  transition: fill 0.3s ease;
+}
+
+/* Light theme */
+.light-theme .nav-toggle-label svg rect {
+  fill: #000; /* black bars */
+}
 
 * {
   box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.4s ease;
 }
 html,
 body {
   height: 100%;
   margin: 0;
+  padding: 0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
-  color: #dbe6e6;
+  color: var(--text);
   background: var(--bg); /* Solid black background */
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 a {
   color: inherit;
   text-decoration: none;
 }
 
-.container {  
+.container {
   max-width: var(--max);
   margin: 0 auto;
   padding: 36px;
@@ -69,14 +156,14 @@ header {
   font-weight: 700;
   letter-spacing: -0.2px;
   font-size: 1.4rem;
-  color: #fff;
+  color: var(--text);
 }
 
 .brand {
   font-weight: 700;
   letter-spacing: -0.2px;
-  font-size: 1.4rem;      /* Make the brand text bigger */
-  padding: 24px 28px;     /* Add more padding for visual impact */
+  font-size: 1.4rem; /* Make the brand text bigger */
+  padding: 24px 28px; /* Add more padding for visual impact */
   margin-left: -28px;
 }
 .navlinks {
@@ -95,7 +182,7 @@ header {
 }
 .navlinks a:hover {
   background: var(--glass);
-  color: #fff;
+  color: var(--text);
 }
 
 /* Hamburger menu styles */
@@ -117,7 +204,7 @@ header {
   display: block;
   height: 4px;
   width: 100%;
-  background: #fff;
+  background: var(--text);
   border-radius: 2px;
   margin: 5px 0;
   transition: 0.3s;
@@ -142,7 +229,7 @@ header {
   line-height: 1.02;
 }
 .intro h1 .name {
-  color: #fff;
+  color: var(--text);
 }
 .intro p.lead {
   color: var(--muted);
@@ -154,7 +241,7 @@ header {
 .side-card {
   grid-column: 2; /* ensure it stays in the second column */
   grid-row: 1;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
   padding: 22px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.04);
@@ -217,7 +304,7 @@ section {
 h2.section-title {
   font-size: 20px;
   margin: 0 0 20px;
-  color: #fff;
+  color: var(--text);
 }
 .projects-grid {
   display: grid;
@@ -271,7 +358,7 @@ h2.section-title {
   height: 300px;
   width: auto;
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -427,74 +514,74 @@ footer {
 }
 
 @media (max-width: 980px) {
-.screenshot img {
-  width: auto;
-  height: 175px;
-  border-radius: 8px; /* optional rounded corners */
-}
-
-.screenshot2 img {
-  width: auto;
-  height: 200px;
-  border-radius: 8px; /* optional rounded corners */
-}
-
-/* Responsive nav */
-@media (max-width: 768px) {
-  .navlinks {
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: var(--panel);
-    height: 100vh;
-    width: 70vw;
-    max-width: 320px;
-    box-shadow: -2px 0 16px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 60px 32px 32px 32px;
-    gap: 32px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 100;
-  }
-  .nav-toggle:checked ~ .navlinks {
-    transform: translateX(0);
-  }
-  .nav-toggle-label {
-    display: flex;
-    z-index: 101;
-    position: absolute;
-    top: 24px;
-    right: 32px;
-    background: transparent;
-    padding: 0; /* Remove default padding for consistency */
-  }
-  .nav-toggle:checked ~ .nav-toggle-label {
-    position: fixed;
-    top: 24px;
-    right: 32px;
-    background: transparent;
-    z-index: 102;
-    padding: 0; /* Ensure same padding when active */
-  }
-  .nav {
-    align-items: center;
-    position: relative;
-    padding-right: 32px; /* Match sidebar icon position */
-    padding-left: 32px;  /* Optional: add left padding for symmetry */
+  .screenshot img {
+    width: auto;
+    height: 175px;
+    border-radius: 8px; /* optional rounded corners */
   }
 
-  /* Make menu icon fixed when sidebar is open */
-  .nav-toggle:checked ~ .nav-toggle-label {
-    position: fixed;
-    top: 24px;
-    right: 32px;
-    background: transparent;
-    z-index: 102;
+  .screenshot2 img {
+    width: auto;
+    height: 200px;
+    border-radius: 8px; /* optional rounded corners */
   }
-}
+
+  /* Responsive nav */
+  @media (max-width: 768px) {
+    .navlinks {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: var(--panel);
+      height: 100vh;
+      width: 70vw;
+      max-width: 320px;
+      box-shadow: -2px 0 16px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 60px 32px 32px 32px;
+      gap: 32px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 100;
+    }
+    .nav-toggle:checked ~ .navlinks {
+      transform: translateX(0);
+    }
+    .nav-toggle-label {
+      display: flex;
+      z-index: 101;
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      background: transparent;
+      padding: 0; /* Remove default padding for consistency */
+    }
+    .nav-toggle:checked ~ .nav-toggle-label {
+      position: fixed;
+      top: 24px;
+      right: 32px;
+      background: transparent;
+      z-index: 102;
+      padding: 0; /* Ensure same padding when active */
+    }
+    .nav {
+      align-items: center;
+      position: relative;
+      padding-right: 32px; /* Match sidebar icon position */
+      padding-left: 32px; /* Optional: add left padding for symmetry */
+    }
+
+    /* Make menu icon fixed when sidebar is open */
+    .nav-toggle:checked ~ .nav-toggle-label {
+      position: fixed;
+      top: 24px;
+      right: 32px;
+      background: transparent;
+      z-index: 102;
+    }
+  }
 }
 
 /* Removes the grey box behind me-photo images */
@@ -507,33 +594,35 @@ footer {
   box-shadow: none !important;
 } */
 
-
-
 .projects-carousel {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto 40px auto;
-    text-align: center;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  text-align: center;
 }
 
 .carousel-projects {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px; 
-    margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .carousel-projects .project {
-    flex: 1 1 0;
-    min-width: 250px;
-    max-width: 320px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);; /* Use your dark panel color */
-    color: #fff;              /* Ensure text is visible */
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
-    padding: 24px 18px;
-    transition: transform 0.4s, box-shadow 0.4s;
+  flex: 1 1 0;
+  min-width: 250px;
+  max-width: 320px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    transparent
+  ); /* Use your dark panel color */
+  color: var(--text); /* Ensure text is visible */
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 24px 18px;
+  transition: transform 0.4s, box-shadow 0.4s;
 }
 
 /* Keep the image and text organized */
@@ -547,7 +636,7 @@ footer {
 }
 
 .carousel-projects .project p {
-  flex-grow: 1;           /* pushes the button to the bottom */
+  flex-grow: 1; /* pushes the button to the bottom */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -564,7 +653,7 @@ footer {
 /* On smaller screens, use a slightly smaller height */
 @media (max-width: 768px) {
   .carousel-projects .project {
-    height: 360px;         /* ✅ fixed height for mobile */
+    height: 360px; /* ✅ fixed height for mobile */
   }
 }
 
@@ -587,8 +676,8 @@ footer {
 }
 
 .carousel-projects .project:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .carousel-projects p {
@@ -596,13 +685,13 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-    .carousel-projects {
-        gap: 0;
-    }
+  .carousel-projects {
+    gap: 0;
+  }
 
-    .project {
-        margin: 0 auto;
-    }
+  .project {
+    margin: 0 auto;
+  }
 }
 
 /* Contact form fields */
@@ -621,8 +710,8 @@ textarea {
 /* Hover effect */
 input:hover,
 textarea:hover {
-  border-color: rgba(57, 217, 138, 0.3);  /* subtle green glow */
-  background: rgba(255, 255, 255, 0.02);  /* slight highlight */
+  border-color: rgba(57, 217, 138, 0.3); /* subtle green glow */
+  background: rgba(255, 255, 255, 0.02); /* slight highlight */
 }
 
 /* Focus effect (when clicked/active) */
@@ -673,7 +762,7 @@ a:active {
 /* Hover effect for normal buttons */
 .btn:hover {
   background: rgba(255, 255, 255, 0.06);
-  color: #fff;
+  color: var(--text);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -686,7 +775,7 @@ a:active {
     rgba(57, 217, 138, 0.15)
   );
   border-color: rgba(57, 217, 138, 0.4);
-  color: #fff;
+  color: var(--text);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(57, 217, 138, 0.3);
 }
@@ -747,7 +836,7 @@ a:active {
 
 /* Positioning */
 #prevProject {
-  left: -22px;  /* προσαρμόζεται ανάλογα με το layout */
+  left: -22px; /* προσαρμόζεται ανάλογα με το layout */
 }
 
 #nextProject {
@@ -760,8 +849,12 @@ a:active {
     width: 38px;
     height: 38px;
   }
-  #prevProject { left: -12px; }
-  #nextProject { right: -12px; }
+  #prevProject {
+    left: -12px;
+  }
+  #nextProject {
+    right: -12px;
+  }
 }
 
 .carousel-btn {
@@ -822,8 +915,12 @@ a:active {
     width: 18px;
     height: 18px;
   }
-  #prevProject { left: -12px; }
-  #nextProject { right: -12px; }
+  #prevProject {
+    left: -12px;
+  }
+  #nextProject {
+    right: -12px;
+  }
 }
 
 /* Common card styling */
@@ -832,7 +929,7 @@ a:active {
   min-width: 250px;
   max-width: 320px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-  color: #fff;
+  color: var(--text);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   padding: 24px 18px;
@@ -840,7 +937,7 @@ a:active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 400px;           /* ✅ fixed height for desktop */
+  height: 400px; /* ✅ fixed height for desktop */
 }
 
 /* Keep the image and text organized */
@@ -854,65 +951,21 @@ a:active {
 }
 
 .carousel-projects .project p {
-  flex-grow: 1;           /* pushes the button to the bottom */
+  flex-grow: 1; /* pushes the button to the bottom */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;  /* ✅ limit lines of text */
+  -webkit-line-clamp: 4; /* ✅ limit lines of text */
   -webkit-box-orient: vertical;
 }
 
 /* On smaller screens, use a slightly smaller height */
 @media (max-width: 768px) {
   .carousel-projects .project {
-    height: 360px;         /* ✅ fixed height for mobile */
+    height: 360px; /* ✅ fixed height for mobile */
   }
 
   .carousel-projects .project p {
     -webkit-line-clamp: 5; /* allow a bit more lines on mobile */
   }
-}
-
-/* Typography & text helpers */
-.no-decoration {
-  color: inherit;
-  text-decoration: none;
-}
-
-.accent {
-  color: var(--accent);
-}
-
-.fw-800 { font-weight: 800; }
-.fw-700 { font-weight: 700; }
-.fs-13 { font-size: 13px; }
-
-/* Margin utilities */
-.mt-6 { margin-top: 6px; }
-.mt-8 { margin-top: 8px; }
-.mt-10 { margin-top: 10px; }
-.mt-12 { margin-top: 12px; }
-.mt-14 { margin-top: 14px; }
-.mt-18 { margin-top: 18px; }
-.mt-22 { margin-top: 22px; }
-.mt-26 { margin-top: 26px; }
-
-/* Flexbox helpers */
-.flex {
-  display: flex;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.gap-8 { gap: 8px; }
-.gap-12 { gap: 12px; }
-
-.wrap {
-  flex-wrap: wrap;
-}
-
-.flex-1 {
-  flex: 1;
 }

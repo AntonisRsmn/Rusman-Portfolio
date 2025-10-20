@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Basic meta -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Antonios Rusman — Web Developer/Designer</title>
+    <title>Antonios Rusman | Web Developer & Designer — Athens, Greece</title>
     <meta
       name="description"
       content="I build fast, modern websites that help businesses grow online."
     />
 
-    <!-- Fonts -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Imgs/me-photo.png" />
+
+    <!-- Fonts (Inter) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
 
-    <meta property="og:title" content="Antonios Rusman — Web Developer/Designer" />
-    <meta property="og:description" content="I build fast, modern websites that help businesses grow online." />
+    <!-- Open Graph / Social metadata -->
+    <meta
+      property="og:title"
+      content="Antonios Rusman — Web Developer/Designer"
+    />
+    <meta
+      property="og:description"
+      content="I build fast, modern websites that help businesses grow online."
+    />
     <meta property="og:image" content="https://rusman.gr/Imgs/og-preview.jpg" />
     <meta property="og:url" content="https://rusman.gr/" />
     <meta name="twitter:card" content="summary_large_image" />
 
+    <link rel="canonical" href="https://rusman.gr/" />
+    <meta name="theme-color" content="#0d0d0d" />
 
+    <!-- Structured data (Person schema) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Antonios Rusman",
-      "url": "https://rusman.gr",
-      "sameAs": [
-        "https://github.com/AntonisRsmn",
-        "https://www.linkedin.com/in/antonis-rusman-a46424319/",
-        "https://instagram.com/_.rusman._"
-      ],
-      "jobTitle": "Web Developer",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Athens",
-        "addressCountry": "Greece"
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Antonios Rusman",
+        "url": "https://rusman.gr",
+        "sameAs": [
+          "https://github.com/AntonisRsmn",
+          "https://www.linkedin.com/in/antonis-rusman-a46424319/",
+          "https://instagram.com/_.rusman._"
+        ],
+        "jobTitle": "Web Developer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Athens",
+          "addressCountry": "Greece"
+        }
       }
-    }
-</script>
-
-
+    </script>
   </head>
+
   <body>
+    <!-- Header / Navigation -->
     <header>
       <div class="container nav">
         <div class="brand">
@@ -57,6 +71,8 @@
             Antonios <span style="color: var(--accent)">Rusman</span>
           </a>
         </div>
+
+        <!-- Mobile nav toggle -->
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
         <label for="nav-toggle" class="nav-toggle-label">
           <!-- Modern SVG hamburger icon -->
@@ -66,33 +82,33 @@
             <rect y="21" width="32" height="3.5" rx="1.75" fill="#fff" />
           </svg>
         </label>
+
+        <!-- Primary navigation links -->
         <nav class="navlinks">
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
-          <a href="Pdfs/Rusman-CV.pdf" target="_blank" id="resume-link"
-            >Resume</a
-          >
-          <!-- <button id="theme-toggle" class="btn">
-            🌞/🌙
-          </button> -->
+          <a href="Pdfs/Rusman-CV.pdf" target="_blank" id="resume-link">Resume</a>
+          <button id="theme-toggle" class="btn" aria-label="Toggle theme">🌞</button>
         </nav>
       </div>
     </header>
 
+    <!-- Main content -->
     <main class="container">
       <!-- HERO -->
       <section class="hero">
         <div class="hero-grid">
+          <!-- Intro / headline -->
           <div class="intro">
             <h1 class="reveal">
-              <span class="name">Antonios Rusman</span> — Web Developer /
-              Designer
+              <span class="name">Antonios Rusman</span> — Web Developer / Designer
             </h1>
             <p class="lead reveal">
               I build fast, modern websites that help businesses grow online.
             </p>
 
+            <!-- Roles / quick skills -->
             <div style="margin-top: 22px" class="reveal">
               <div style="display: flex; gap: 12px; flex-wrap: wrap">
                 <div class="role">Front-End / Back-End Development</div>
@@ -101,11 +117,13 @@
               </div>
             </div>
 
+            <!-- Call to action -->
             <div class="cta reveal">
               <a class="btn primary" href="#contact">Hire me</a>
               <a class="btn" href="#projects">See projects</a>
             </div>
 
+            <!-- Social links -->
             <div style="margin-top: 26px" class="reveal">
               <span class="muted">Connect —</span>
               <a
@@ -136,6 +154,7 @@
             </div>
           </div>
 
+          <!-- Side card (availability + skills) -->
           <aside class="side-card reveal">
             <div style="display: flex; align-items: center; gap: 12px">
               <div style="flex: 1">
@@ -147,9 +166,7 @@
             </div>
 
             <div style="margin-top: 18px">
-              <div
-                style="font-size: 13px; color: var(--muted); font-weight: 700"
-              >
+              <div style="font-size: 13px; color: var(--muted); font-weight: 700">
                 Skills
               </div>
               <div
@@ -174,126 +191,63 @@
         </div>
       </section>
 
-      <!-- PROJECTS -->
-      <!-- <section id="projects">
-        <h2 class="section-title reveal">Selected projects</h2>
-        <div class="projects-grid">
-          <article class="project reveal">
-            <div target="_blank" class="screenshot">
-              <div>
-                <a href="https://ryvex.gr/" target="_blank"
-                  ><img src="Imgs/ryvex-logo.webp" alt="Ryvex Photo"
-                /></a>
-              </div>
-            </div>
-            <h3>Ryvex</h3>
-            <p class="muted">
-              Ryvex is a discord bot built to help you manage your discord
-              server and also the members.
-            </p>
-          </article>
-
-          <article class="project reveal">
-            <div target="_blank" class="screenshot">
-              <div>
-                <a
-                  href="https://antonisrsmn.github.io/Betl-Greece/"
-                  target="_blank"
-                  ><img src="Imgs/betl-logo.webp" alt="Unlike Photo"
-                /></a>
-              </div>
-            </div>
-            <h3>Betl</h3>
-            <p class="muted">
-              Betl provides innovative battery solutions focused on mobile and
-              on-the-go charging.
-            </p>
-          </article>
-
-          <article class="project reveal">
-            <div target="_blank" class="screenshot">
-              <div>
-                <a href="https://unlike.gr/" target="_blank"
-                  ><img src="Imgs/Unlike-Logo-White.webp" alt="Unlike Photo"
-                /></a>
-              </div>
-            </div>
-            <h3>Unlike</h3>
-            <p class="muted">
-              Real-time global chat app for open, anonymous communication
-              online.
-            </p>
-          </article>
-
-          <article class="project reveal">
-            <div target="_blank" class="screenshot">
-              <div>
-                <a
-                  href="https://antonisrsmn.github.io/Eshop-Template/"
-                  target="_blank"
-                  ><img src="Imgs/eshop-img.jpg" alt="E-Shop Template Photo"
-                /></a>
-              </div>
-            </div>
-            <h3>E-Shop Template</h3>
-            <p class="muted">
-              Modern e-shop template with responsive design and clean code
-              structure.
-            </p>
-          </article>
-
-          <article class="project reveal">
-            <div target="_blank" class="screenshot2">
-              <div>
-                <a
-                  href="https://antonisrsmn.github.io/Weather-App/"
-                  target="_blank"
-                  ><img src="Imgs/weather-app.webp" alt="Weather App Photo"
-                /></a>
-              </div>
-            </div>
-            <h3>Weather App</h3>
-            <p class="muted">
-              Live weather updates with clean design and accurate data
-              integration.
-            </p>
-          </article>
-
-          <article class="project reveal">
-            <div target="_blank" class="screenshot">
-              <div>
-                <a href="https://stefaniadrakou.gr" target="_blank"
-                  ><img src="Imgs/stefania.webp" alt="Στεφανια Δρακου Photo"
-                /></a>
-              </div>
-            </div>
-            <h3>Στεφανια Δρακου</h3>
-            <p class="muted">
-              Small business site for a client in the psychology field.
-            </p>
-          </article>
-        </div>
-      </section> -->
-
       <!-- PROJECTS CAROUSEL -->
-       <section id="projects">
+      <section id="projects">
         <h2 class="section-title reveal">Selected projects</h2>
-    <section id="projects-carousel" class="projects-carousel">
-        <div class="carousel-projects" id="carouselProjects" aria-live="polite"></div> <!-- Dynamic project cards will be inserted here -->
-        <button class="carousel-btn" id="prevProject" aria-label="Previous Project">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-    <polyline points="15 18 9 12 15 6"></polyline>
-  </svg>
-</button>
 
-<button class="carousel-btn" id="nextProject" aria-label="Next Project">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-    <polyline points="9 18 15 12 9 6"></polyline>
-  </svg>
-</button>
+        <!-- Carousel container:
+             - carousel-projects (id=carouselProjects) will be populated dynamically via JS
+             - prev/next buttons navigate through projects -->
+        <section id="projects-carousel" class="projects-carousel">
+          <div
+            class="carousel-projects"
+            id="carouselProjects"
+            aria-live="polite"
+          ></div>
 
+          <button
+            class="carousel-btn"
+            id="prevProject"
+            aria-label="Previous Project"
+            title="Previous"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              width="20"
+              height="20"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
 
-    </section>
+          <button
+            class="carousel-btn"
+            id="nextProject"
+            aria-label="Next Project"
+            title="Next"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              width="20"
+              height="20"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </section>
+      </section>
 
       <!-- ABOUT -->
       <section id="about">
@@ -301,8 +255,8 @@
         <div class="about-grid">
           <div>
             <p class="reveal muted">
-              Hi — I’m Antonis. I focus on building accessible, fast, and modern
-              websites for small businesses and creatives. I like clean
+              Hi — I’m Antonis. I focus on building accessible, fast, and
+              modern websites for small businesses and creatives. I like clean
               interfaces, well-structured code, and products that solve real
               problems.
             </p>
@@ -331,8 +285,9 @@
 
           <aside>
             <div class="me-photo reveal">
-              <img src="Imgs/Rusman.webp" alt="A photo of me" />
+              <img src="Imgs/Rusman.webp" alt="A photo of me" loading="lazy" />
             </div>
+
             <div style="margin-top: 14px" class="contact-card reveal">
               <div style="font-weight: 800">Let’s work together</div>
               <div class="muted" style="margin-top: 8px">
@@ -351,6 +306,7 @@
         <h2 class="section-title reveal">Contact</h2>
         <div style="display: grid; grid-template-columns: 1fr 360px; gap: 20px">
           <div>
+            <!-- Contact form (Formspree) -->
             <form action="https://formspree.io/f/xvgorlbp" method="POST">
               <label for="name">Name</label>
               <input id="name" name="name" required placeholder="Your name" />
@@ -383,9 +339,7 @@
             <div class="muted" style="margin-top: 8px">
               Email: <a href="mailto:info@rusman.gr">info@rusman.gr</a>
             </div>
-            <div class="muted" style="margin-top: 8px">
-              Location: Athens, Greece
-            </div>
+            <div class="muted" style="margin-top: 8px">Location: Athens, Greece</div>
 
             <div style="margin-top: 12px">
               <div style="font-weight: 700">Social</div>
@@ -419,133 +373,189 @@
         </div>
       </section>
 
+      <!-- Footer -->
       <footer>
         <div class="muted">
-          © <span id="year"></span> 2025 Antonios Rusman — All rights reserved.
+          © <span id="year"></span> Antonios Rusman — All rights reserved.
         </div>
       </footer>
     </main>
 
-    <!-- AOS -->
+    <!-- AOS (Animation on Scroll) -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-    <!-- Scripts -->
+    <!-- Main site script (deferred) -->
     <script src="script.js" defer></script>
 
-
-    <!-- SCRIPTS -->
+    <!-- Inline scripts: carousel, theme toggle, misc -->
     <script>
-        AOS.init(); // Initialize AOS animations
+      /* Initialize AOS animations */
+      AOS.init();
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to determine how many projects to display based on screen size
-            function getVisibleCount() {
-                return window.innerWidth <= 600 ? 1 : 3;
-            }
+      /* DOM ready: build carousel and handle responsive visible count */
+      document.addEventListener("DOMContentLoaded", function () {
+        // Determine how many projects to show at once based on viewport width
+        function getVisibleCount() {
+          return window.innerWidth <= 600 ? 1 : 3;
+        }
 
-            // Array of project objects
-            const allProjects = [
-                { icon: "/Imgs/ryvex-logo.webp", title: "Ryvex", desc: "Ryvex is a discord bot built to help you manage your discord server and also the members.", link: "https://ryvex.gr" },
-                { icon: "Imgs/betl-logo.webp", title: "Betl", desc: "Betl provides innovative battery solutions focused on mobile and on-the-go charging.", link: "https://antonisrsmn.github.io/Betl-Greece/" },
-                { icon: "Imgs/Unlike-Logo-White.webp", title: "Unlike", desc: "A real-time global chat platform for open, secure, and anonymous communication online.", link: "https://unlike.gr" },
-                { icon: "Imgs/eshop-img.jpg", title: "E-Shop Template", desc: "Modern e-shop template with responsive design and clean code structure.", link: "https://antonisrsmn.github.io/Eshop-Template/" },
-                { icon: "Imgs/stefania.webp", title: "Στεφανια Δρακου", desc: "A clean and modern website designed for a psychology professional, highlighting services.", link: "https://stefaniadrakou.gr/" },
-                { icon: "Imgs/weather-app.webp", title: "Weather App", desc: "Live weather updates with a clean design and accurate real-time data integration.", link: "https://antonisrsmn.github.io/Weather-App/" },
-                { icon: "Imgs/Calculator.webp", title: "Calculator", desc: "Clean, minimalist calculator app built for precision, simplicity, and consistent performance.", link: "https://antonisrsmn.github.io/Calculator-App/" }
-            ];
-
-            let currentProject = 0; // Index of the currently visible project
-            const carousel = document.getElementById('carouselProjects'); // Carousel container
-
-            // Function to render visible projects in the carousel
-            function renderProjects(startIndex) {
-                const visibleCount = getVisibleCount();
-                let html = '';
-                for (let i = 0; i < visibleCount; i++) {
-                    const idx = (startIndex + i) % allProjects.length;
-                    const p = allProjects[idx];
-                    html += `
-                        <div class="project">
-                            <div class="project-icon">
-                                <img src="${p.icon}" alt="${p.title} Logo">
-                            </div>
-                            <h3>${p.title}</h3>
-                            <p>${p.desc}</p>
-                            <button class="btn primary" onclick="window.open('${p.link}','_blank')">Website</button>
-                        </div>
-                    `;
-                }
-                carousel.innerHTML = html;
-            }
-
-            // Event listeners for carousel navigation
-            document.getElementById('nextProject').onclick = function() {
-                currentProject = (currentProject + 1) % allProjects.length;
-                renderProjects(currentProject);
-            };
-
-            document.getElementById('prevProject').onclick = function() {
-                currentProject = (currentProject - 1 + allProjects.length) % allProjects.length;
-                renderProjects(currentProject);
-            };
-
-            // Re-render projects on window resize
-            window.addEventListener('resize', () => renderProjects(currentProject));
-
-            renderProjects(currentProject); // Initial render
-        });
-
-        // Preload all project images
-        const projectImages = [
-            "/Imgs/ryvex-logo.webp",
-            "/Imgs/betl-logo.webp",
-            "/Imgs/Unlike-Logo-White.webp",
-            "/Imgs/eshop-img.jpg",
-            "/Imgs/stefania.webp",
-            "/Imgs/weather-app.webp",
-            "/Imgs/Calculator.webp"
+        // Projects data (icons, titles, descriptions, links)
+        const allProjects = [
+          {
+            icon: "/Imgs/ryvex-logo.webp",
+            title: "Ryvex",
+            desc:
+              "Ryvex is a discord bot built to help you manage your discord server and also the members.",
+            link: "https://ryvex.gr",
+          },
+          {
+            icon: "Imgs/betl-logo.webp",
+            title: "Betl",
+            desc:
+              "Betl provides innovative battery solutions focused on mobile and on-the-go charging.",
+            link: "https://antonisrsmn.github.io/Betl-Greece/",
+          },
+          {
+            icon: "Imgs/Unlike-Logo-White.webp",
+            title: "Unlike",
+            desc:
+              "A real-time global chat platform for open, secure, and anonymous communication online.",
+            link: "https://unlike.gr",
+          },
+          {
+            icon: "Imgs/eshop-img.webp",
+            title: "E-Shop Template",
+            desc:
+              "Modern e-shop template with responsive design and clean code structure.",
+            link: "https://antonisrsmn.github.io/Eshop-Template/",
+          },
+          {
+            icon: "Imgs/stefania.webp",
+            title: "Στεφανια Δρακου",
+            desc:
+              "A clean and modern website designed for a psychology professional, highlighting services.",
+            link: "https://stefaniadrakou.gr/",
+          },
+          {
+            icon: "Imgs/weather-app.webp",
+            title: "Weather App",
+            desc:
+              "Live weather updates with a clean design and accurate real-time data integration.",
+            link: "https://antonisrsmn.github.io/Weather-App/",
+          },
+          {
+            icon: "Imgs/Calculator.webp",
+            title: "Calculator",
+            desc:
+              "Clean, minimalist calculator app built for precision, simplicity, and consistent performance.",
+            link: "https://antonisrsmn.github.io/Calculator-App/",
+          },
         ];
-        projectImages.forEach(src => {
-            const img = new Image();
-            img.src = src;
+
+        let currentProject = 0; // index of the first visible project
+        const carousel = document.getElementById("carouselProjects");
+
+        // Render visible projects starting from startIndex
+        function renderProjects(startIndex) {
+          const visibleCount = getVisibleCount();
+          let html = "";
+          for (let i = 0; i < visibleCount; i++) {
+            const idx = (startIndex + i) % allProjects.length;
+            const p = allProjects[idx];
+            html += `
+              <div class="project">
+                <div class="project-icon">
+                  <img src="${p.icon}" alt="${p.title} Logo" loading="lazy">
+                </div>
+                <h3>${p.title}</h3>
+                <p>${p.desc}</p>
+                <button class="btn primary" onclick="window.open('${p.link}','_blank')">Website</button>
+              </div>
+            `;
+          }
+          carousel.innerHTML = html;
+        }
+
+        // Next / Prev navigation handlers
+        document.getElementById("nextProject").onclick = function () {
+          currentProject = (currentProject + 1) % allProjects.length;
+          renderProjects(currentProject);
+        };
+
+        document.getElementById("prevProject").onclick = function () {
+          currentProject =
+            (currentProject - 1 + allProjects.length) % allProjects.length;
+          renderProjects(currentProject);
+        };
+
+        // Re-render on resize to adjust visibleCount
+        window.addEventListener("resize", () => renderProjects(currentProject));
+
+        // Initial render
+        renderProjects(currentProject);
+      });
+
+      /* Preload project images for smoother carousel experience */
+      (function preloadProjectImages() {
+        const projectImages = [
+          "/Imgs/ryvex-logo.webp",
+          "/Imgs/betl-logo.webp",
+          "/Imgs/Unlike-Logo-White.webp",
+          "/Imgs/eshop-img.webp",
+          "/Imgs/stefania.webp",
+          "/Imgs/weather-app.webp",
+          "/Imgs/Calculator.webp",
+        ];
+        projectImages.forEach((src) => {
+          const img = new Image();
+          img.src = src;
         });
+      })();
     </script>
 
-    <!-- <script>
-    const toggleBtn = document.querySelector('#theme-toggle');
-    const body = document.body;
+    <script>
+      /* Theme toggle (light / dark) */
+      const toggleBtn = document.querySelector("#theme-toggle");
+      const body = document.body;
 
-    // Update button icon based on theme
-    function updateThemeIcon() {
-      if (body.classList.contains('light-theme')) {
-        toggleBtn.textContent = '🌞'; // Light mode
-      } else {
-        toggleBtn.textContent = '🌙'; // Dark mode
-      }
-    }
-
-    // Load saved theme
-    if (localStorage.getItem('theme') === 'light') {
-      body.classList.add('light-theme');
-    } else {
-      body.classList.remove('light-theme');
-    }
-    updateThemeIcon();
-
-    // Toggle theme on click
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('light-theme');
-
-      // Save preference
-      if (body.classList.contains('light-theme')) {
-        localStorage.setItem('theme', 'light');
-      } else {
-        localStorage.setItem('theme', 'dark');
+      // Update button icon based on theme class
+      function updateThemeIcon() {
+        if (body.classList.contains("light-theme")) {
+          toggleBtn.textContent = "🌞"; // icon for light mode
+        } else {
+          toggleBtn.textContent = "🌙"; // icon for dark mode
+        }
       }
 
+      // Load saved theme preference (localStorage)
+      if (localStorage.getItem("theme") === "light") {
+        body.classList.add("light-theme");
+      } else {
+        body.classList.remove("light-theme");
+      }
       updateThemeIcon();
-    });
-    </script> -->
+
+      // Toggle theme and persist preference
+      toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light-theme");
+
+        if (body.classList.contains("light-theme")) {
+          localStorage.setItem("theme", "light");
+        } else {
+          localStorage.setItem("theme", "dark");
+        }
+
+        updateThemeIcon();
+      });
+
+      /* Footer year auto-fill */
+      (function setFooterYear() {
+        const yearEl = document.getElementById("year");
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
+        }
+      })();
+    </script>
   </body>
 </html>
