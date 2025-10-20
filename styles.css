@@ -684,7 +684,7 @@ footer {
   margin-bottom: 25px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 890px) {
   .carousel-projects {
     gap: 0;
   }
