@@ -14,9 +14,40 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
+
+    <meta property="og:title" content="Antonios Rusman — Web Developer/Designer" />
+    <meta property="og:description" content="I build fast, modern websites that help businesses grow online." />
+    <meta property="og:image" content="https://rusman.gr/Imgs/og-preview.jpg" />
+    <meta property="og:url" content="https://rusman.gr/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Antonios Rusman",
+      "url": "https://rusman.gr",
+      "sameAs": [
+        "https://github.com/AntonisRsmn",
+        "https://www.linkedin.com/in/antonis-rusman-a46424319/",
+        "https://instagram.com/_.rusman._"
+      ],
+      "jobTitle": "Web Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Athens",
+        "addressCountry": "Greece"
+      }
+    }
+</script>
+
+
   </head>
   <body>
     <header>
@@ -79,6 +110,7 @@
               <span class="muted">Connect —</span>
               <a
                 href="https://github.com/AntonisRsmn"
+                aria-label="Visit my GitHub profile"
                 target="_blank"
                 rel="noopener"
                 >GitHub</a
@@ -86,6 +118,7 @@
               ·
               <a
                 href="https://www.linkedin.com/in/antonis-rusman-a46424319/"
+                aria-label="Visit my LinkedIn profile"
                 target="_blank"
                 rel="noopener"
                 >LinkedIn</a
@@ -93,6 +126,7 @@
               ·
               <a
                 href="https://instagram.com/_.rusman._"
+                aria-label="Visit my Instagram profile"
                 target="_blank"
                 rel="noopener"
                 >Instagram</a
@@ -148,7 +182,7 @@
             <div target="_blank" class="screenshot">
               <div>
                 <a href="https://ryvex.gr/" target="_blank"
-                  ><img src="Imgs/ryvex-logo.png" alt="Ryvex Photo"
+                  ><img src="Imgs/ryvex-logo.webp" alt="Ryvex Photo"
                 /></a>
               </div>
             </div>
@@ -165,7 +199,7 @@
                 <a
                   href="https://antonisrsmn.github.io/Betl-Greece/"
                   target="_blank"
-                  ><img src="Imgs/betl-logo.png" alt="Unlike Photo"
+                  ><img src="Imgs/betl-logo.webp" alt="Unlike Photo"
                 /></a>
               </div>
             </div>
@@ -180,7 +214,7 @@
             <div target="_blank" class="screenshot">
               <div>
                 <a href="https://unlike.gr/" target="_blank"
-                  ><img src="Imgs/Unlike-Logo-White.png" alt="Unlike Photo"
+                  ><img src="Imgs/Unlike-Logo-White.webp" alt="Unlike Photo"
                 /></a>
               </div>
             </div>
@@ -214,7 +248,7 @@
                 <a
                   href="https://antonisrsmn.github.io/Weather-App/"
                   target="_blank"
-                  ><img src="Imgs/weather-app.png" alt="Weather App Photo"
+                  ><img src="Imgs/weather-app.webp" alt="Weather App Photo"
                 /></a>
               </div>
             </div>
@@ -229,7 +263,7 @@
             <div target="_blank" class="screenshot">
               <div>
                 <a href="https://stefaniadrakou.gr" target="_blank"
-                  ><img src="Imgs/stefania.png" alt="Στεφανια Δρακου Photo"
+                  ><img src="Imgs/stefania.webp" alt="Στεφανια Δρακου Photo"
                 /></a>
               </div>
             </div>
@@ -245,7 +279,7 @@
        <section id="projects">
         <h2 class="section-title reveal">Selected projects</h2>
     <section id="projects-carousel" class="projects-carousel">
-        <div class="carousel-projects" id="carouselProjects"></div> <!-- Dynamic project cards will be inserted here -->
+        <div class="carousel-projects" id="carouselProjects" aria-live="polite"></div> <!-- Dynamic project cards will be inserted here -->
         <button class="carousel-btn" id="prevProject" aria-label="Previous Project">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
     <polyline points="15 18 9 12 15 6"></polyline>
@@ -297,7 +331,7 @@
 
           <aside>
             <div class="me-photo reveal">
-              <img src="Imgs/Rusman.jpeg" alt="A photo of me" />
+              <img src="Imgs/Rusman.webp" alt="A photo of me" />
             </div>
             <div style="margin-top: 14px" class="contact-card reveal">
               <div style="font-weight: 800">Let’s work together</div>
@@ -358,6 +392,7 @@
               <div class="muted" style="margin-top: 8px">
                 <a
                   href="https://github.com/AntonisRsmn"
+                  aria-label="Visit my GitHub profile"
                   target="_blank"
                   rel="noopener"
                   >GitHub</a
@@ -365,6 +400,7 @@
                 ·
                 <a
                   href="https://www.linkedin.com/in/antonis-rusman-a46424319/"
+                  aria-label="Visit my LinkedIn profile"
                   target="_blank"
                   rel="noopener"
                   >LinkedIn</a
@@ -372,6 +408,7 @@
                 ·
                 <a
                   href="https://instagram.com/_.rusman._"
+                  aria-label="Visit my Instagram profile"
                   target="_blank"
                   rel="noopener"
                   >Instagram</a
@@ -394,7 +431,8 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+
 
     <!-- SCRIPTS -->
     <script>
@@ -408,13 +446,13 @@
 
             // Array of project objects
             const allProjects = [
-                { icon: "/Imgs/ryvex-logo.png", title: "Ryvex", desc: "Ryvex is a discord bot built to help you manage your discord server and also the members.", link: "https://ryvex.gr" },
-                { icon: "Imgs/betl-logo.png", title: "Betl", desc: "Betl provides innovative battery solutions focused on mobile and on-the-go charging.", link: "https://antonisrsmn.github.io/Betl-Greece/" },
-                { icon: "Imgs/Unlike-Logo-White.png", title: "Unlike", desc: "A real-time global chat platform for open, secure, and anonymous communication online.", link: "https://unlike.gr" },
+                { icon: "/Imgs/ryvex-logo.webp", title: "Ryvex", desc: "Ryvex is a discord bot built to help you manage your discord server and also the members.", link: "https://ryvex.gr" },
+                { icon: "Imgs/betl-logo.webp", title: "Betl", desc: "Betl provides innovative battery solutions focused on mobile and on-the-go charging.", link: "https://antonisrsmn.github.io/Betl-Greece/" },
+                { icon: "Imgs/Unlike-Logo-White.webp", title: "Unlike", desc: "A real-time global chat platform for open, secure, and anonymous communication online.", link: "https://unlike.gr" },
                 { icon: "Imgs/eshop-img.jpg", title: "E-Shop Template", desc: "Modern e-shop template with responsive design and clean code structure.", link: "https://antonisrsmn.github.io/Eshop-Template/" },
-                { icon: "Imgs/stefania.png", title: "Στεφανια Δρακου", desc: "A clean and modern website designed for a psychology professional, highlighting services.", link: "https://stefaniadrakou.gr/" },
-                { icon: "Imgs/weather-app.png", title: "Weather App", desc: "Live weather updates with a clean design and accurate real-time data integration.", link: "https://antonisrsmn.github.io/Weather-App/" },
-                { icon: "Imgs/Calculator.png", title: "Calculator", desc: "Clean, minimalist calculator app built for precision, simplicity, and consistent performance.", link: "https://antonisrsmn.github.io/Calculator-App/" }
+                { icon: "Imgs/stefania.webp", title: "Στεφανια Δρακου", desc: "A clean and modern website designed for a psychology professional, highlighting services.", link: "https://stefaniadrakou.gr/" },
+                { icon: "Imgs/weather-app.webp", title: "Weather App", desc: "Live weather updates with a clean design and accurate real-time data integration.", link: "https://antonisrsmn.github.io/Weather-App/" },
+                { icon: "Imgs/Calculator.webp", title: "Calculator", desc: "Clean, minimalist calculator app built for precision, simplicity, and consistent performance.", link: "https://antonisrsmn.github.io/Calculator-App/" }
             ];
 
             let currentProject = 0; // Index of the currently visible project
@@ -460,13 +498,13 @@
 
         // Preload all project images
         const projectImages = [
-            "/Imgs/ryvex-logo.png",
-            "/Imgs/betl-logo.png",
-            "/Imgs/Unlike-Logo-White.png",
+            "/Imgs/ryvex-logo.webp",
+            "/Imgs/betl-logo.webp",
+            "/Imgs/Unlike-Logo-White.webp",
             "/Imgs/eshop-img.jpg",
-            "/Imgs/stefania.png",
-            "/Imgs/weather-app.png",
-            "/Imgs/Calculator.png"
+            "/Imgs/stefania.webp",
+            "/Imgs/weather-app.webp",
+            "/Imgs/Calculator.webp"
         ];
         projectImages.forEach(src => {
             const img = new Image();
