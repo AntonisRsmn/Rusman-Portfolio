@@ -23,13 +23,58 @@ if (navToggle && navToggleLabel) {
   });
 }
 
+// THEME: init + sync with slide switch
+(function () {
+  const body = document.body;
+  const toggle = document.getElementById("theme-toggle");
+  const mq = window.matchMedia("(prefers-color-scheme: light)");
+
+  const applyTheme = (theme, persist = true) => {
+    const isLight = theme === "light";
+    body.classList.toggle("light-theme", isLight);
+    if (toggle) {
+      toggle.checked = isLight;
+      toggle.setAttribute("aria-checked", String(isLight));
+    }
+    if (persist) localStorage.setItem("theme", theme);
+  };
+
+  const initTheme = () => {
+    const stored = localStorage.getItem("theme");
+    const theme = stored || (mq.matches ? "light" : "dark");
+    applyTheme(theme, false);
+  };
+
+  initTheme();
+
+  if (toggle) {
+    toggle.addEventListener("change", (e) => {
+      applyTheme(e.currentTarget.checked ? "light" : "dark");
+    });
+  }
+
+  // Follow system changes when user hasn't chosen manually
+  const onPrefChange = (e) => {
+    if (localStorage.getItem("theme")) return;
+    applyTheme(e.matches ? "light" : "dark", false);
+  };
+  if (mq.addEventListener) mq.addEventListener("change", onPrefChange);
+  else mq.addListener(onPrefChange); // older Safari
+})();
+
 // Social links
-document.getElementById("github-link").href = "https://github.com/AntonisRsmn";
-document.getElementById("linkedin-link").href =
-  "https://www.linkedin.com/in/antonis-rusman-a46424319/";
-document.getElementById("insta-link").href = "https://instagram.com/_.rusman._";
-document.getElementById("resume-link").addEventListener("click", (e) => {
-  e.preventDefault();
-  alert("Add your resume PDF link here.");
-});
+// Guard social link assignments (optional safety)
+const gh = document.getElementById("github-link");
+if (gh) gh.href = "https://github.com/AntonisRsmn";
+const li = document.getElementById("linkedin-link");
+if (li) li.href = "https://www.linkedin.com/in/antonis-rusman-a46424319/";
+const ig = document.getElementById("insta-link");
+if (ig) ig.href = "https://instagram.com/_.rusman._";
+const cv = document.getElementById("resume-link");
+if (cv) {
+  cv.addEventListener("click", (e) => {
+    e.preventDefault();
+    alert("Add your resume PDF link here.");
+  });
+}
 

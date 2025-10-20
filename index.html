@@ -90,7 +90,47 @@
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
           <a href="Pdfs/Rusman-CV.pdf" target="_blank" id="resume-link" rel="noopener">Resume</a>
-          <button id="theme-toggle" class="btn" aria-label="Toggle theme">🌞</button>
+
+          <!-- Theme switch (keep structure, replace only SVGs) -->
+          <div class="theme-switch nav-item">
+            <input
+              id="theme-toggle"
+              class="switch-input"
+              type="checkbox"
+              role="switch"
+              aria-checked="false"
+              aria-label="Toggle light theme"
+            />
+            <label class="switch" for="theme-toggle">
+              <span class="switch-track">
+                <!-- Ghost icons on track (outline style) -->
+                <svg class="icon ghost sun-ghost" viewBox="0 0 24 24" aria-hidden="true">
+                  <!-- Sun outline + rays -->
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+                  <path d="M12 2.5v3M12 18.5v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2.5 12h3M18.5 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <svg class="icon ghost moon-ghost" viewBox="0 0 24 24" aria-hidden="true">
+                  <!-- Crescent moon -->
+                  <path d="M13 2.6a9.4 9.4 0 1 0 8.4 13.9A7.6 7.6 0 0 1 13 2.6z"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+
+              <span class="switch-thumb" aria-hidden="true">
+                <!-- Icons inside the moving thumb (outline style) -->
+                <svg class="thumb-icon sun" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+                  <path d="M12 2.5v3M12 18.5v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2.5 12h3M18.5 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <svg class="thumb-icon moon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M13 2.6a9.4 9.4 0 1 0 8.4 13.9A7.6 7.6 0 0 1 13 2.6z"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </label>
+          </div>
         </nav>
       </div>
     </header>
@@ -131,7 +171,7 @@
               ·
               <a href="https://www.linkedin.com/in/antonis-rusman-a46424319/" target="_blank" rel="noopener">LinkedIn</a>
               ·
-              <a href="https://instagram.com/_.rusman._" target="_blank" rel="noopener">Instagram</a>
+              <a href
               ·
               <a href="mailto:info@rusman.gr" title="Email">Email</a>
             </div>
