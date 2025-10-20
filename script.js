@@ -7,25 +7,21 @@ const obs = new IntersectionObserver(
   },
   { threshold: 0.08 }
 );
-
 document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
 
-// Contact form fallback to mail client
-const form = document.getElementById("contact-form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-  const subject = encodeURIComponent("New message from portfolio — " + name);
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\n${message}`
-  );
-  window.location.href = `mailto:info@rusman.gr?subject=${subject}&body=${body}`;
-});
-
 // Dynamic year
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Mobile nav ARIA
+const navToggle = document.getElementById("nav-toggle");
+const navToggleLabel = document.querySelector(".nav-toggle-label");
+if (navToggle && navToggleLabel) {
+  navToggleLabel.setAttribute("aria-expanded", "false");
+  navToggle.addEventListener("change", () => {
+    navToggleLabel.setAttribute("aria-expanded", navToggle.checked ? "true" : "false");
+  });
+}
 
 // Social links
 document.getElementById("github-link").href = "https://github.com/AntonisRsmn";

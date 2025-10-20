@@ -66,8 +66,9 @@
     <!-- Header / Navigation -->
     <header>
       <div class="container nav">
+        <!-- Header brand link: subpath‑safe -->
         <div class="brand">
-          <a href="/" style="color: inherit; text-decoration: none">
+          <a href="./" style="color: inherit; text-decoration: none">
             Antonios <span style="color: var(--accent)">Rusman</span>
           </a>
         </div>
@@ -88,7 +89,7 @@
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
-          <a href="Pdfs/Rusman-CV.pdf" target="_blank" id="resume-link">Resume</a>
+          <a href="Pdfs/Rusman-CV.pdf" target="_blank" id="resume-link" rel="noopener">Resume</a>
           <button id="theme-toggle" class="btn" aria-label="Toggle theme">🌞</button>
         </nav>
       </div>
@@ -126,31 +127,13 @@
             <!-- Social links -->
             <div style="margin-top: 26px" class="reveal">
               <span class="muted">Connect —</span>
-              <a
-                href="https://github.com/AntonisRsmn"
-                aria-label="Visit my GitHub profile"
-                target="_blank"
-                rel="noopener"
-                >GitHub</a
-              >
+              <a href="https://github.com/AntonisRsmn" target="_blank" rel="noopener">GitHub</a>
               ·
-              <a
-                href="https://www.linkedin.com/in/antonis-rusman-a46424319/"
-                aria-label="Visit my LinkedIn profile"
-                target="_blank"
-                rel="noopener"
-                >LinkedIn</a
-              >
+              <a href="https://www.linkedin.com/in/antonis-rusman-a46424319/" target="_blank" rel="noopener">LinkedIn</a>
               ·
-              <a
-                href="https://instagram.com/_.rusman._"
-                aria-label="Visit my Instagram profile"
-                target="_blank"
-                rel="noopener"
-                >Instagram</a
-              >
+              <a href="https://instagram.com/_.rusman._" target="_blank" rel="noopener">Instagram</a>
               ·
-              <a href="mailto:info@rusman.gr" title="Email"> Email</a>
+              <a href="mailto:info@rusman.gr" title="Email">Email</a>
             </div>
           </div>
 
@@ -309,28 +292,18 @@
             <!-- Contact form (Formspree) -->
             <form action="https://formspree.io/f/xvgorlbp" method="POST">
               <label for="name">Name</label>
-              <input id="name" name="name" required placeholder="Your name" />
+              <input id="name" name="name" type="text" placeholder="Your name" required />
 
-              <label for="email" style="margin-top: 8px">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="you@email.com"
-              />
+              <label for="email">Email</label>
+              <input id="email" name="_replyto" type="email" placeholder="you@example.com" required />
 
-              <label for="message" style="margin-top: 8px">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
-                placeholder="Tell me about your project..."
-              ></textarea>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Tell me about your project..." required></textarea>
 
-              <div class="submit">
-                <button type="submit" class="btn primary">Send message</button>
-              </div>
+              <!-- honeypot -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+              <button class="btn primary submit" type="submit">Send message</button>
             </form>
           </div>
 
@@ -403,7 +376,7 @@
         // Projects data (icons, titles, descriptions, links)
         const allProjects = [
           {
-            icon: "/Imgs/ryvex-logo.webp",
+            icon: "Imgs/ryvex-logo.webp",
             title: "Ryvex",
             desc:
               "Ryvex is a discord bot built to help you manage your discord server and also the members.",
@@ -470,7 +443,7 @@
                 </div>
                 <h3>${p.title}</h3>
                 <p>${p.desc}</p>
-                <button class="btn primary" onclick="window.open('${p.link}','_blank')">Website</button>
+                <a class="btn primary" href="${p.link}" target="_blank" rel="noopener">Website</a>
               </div>
             `;
           }
@@ -499,13 +472,13 @@
       /* Preload project images for smoother carousel experience */
       (function preloadProjectImages() {
         const projectImages = [
-          "/Imgs/ryvex-logo.webp",
-          "/Imgs/betl-logo.webp",
-          "/Imgs/Unlike-Logo-White.webp",
-          "/Imgs/eshop-img.webp",
-          "/Imgs/stefania.webp",
-          "/Imgs/weather-app.webp",
-          "/Imgs/Calculator.webp",
+          "Imgs/ryvex-logo.webp",
+          "Imgs/betl-logo.webp",
+          "Imgs/Unlike-Logo-White.webp",
+          "Imgs/eshop-img.webp",
+          "Imgs/stefania.webp",
+          "Imgs/weather-app.webp",
+          "Imgs/Calculator.webp",
         ];
         projectImages.forEach((src) => {
           const img = new Image();
