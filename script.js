@@ -74,7 +74,7 @@ const cv = document.getElementById("resume-link");
 if (cv) {
   cv.addEventListener("click", (e) => {
     e.preventDefault(); // prevent default link behavior
-    window.open("Pdfs/Rusman-cv.pdf", "_blank"); // opens the PDF in a new tab
+    window.open("Pdfs/Rusman-CV.pdf", "_blank"); // opens the PDF in a new tab
   });
 }
 
