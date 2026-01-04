@@ -73,8 +73,8 @@ if (ig) ig.href = "https://instagram.com/_.rusman._";
 const cv = document.getElementById("resume-link");
 if (cv) {
   cv.addEventListener("click", (e) => {
-    e.preventDefault();
-    alert("Add your resume PDF link here.");
+    e.preventDefault(); // prevent default link behavior
+    window.open("Pdfs/Rusman-cv.pdf", "_blank"); // opens the PDF in a new tab
   });
 }
 
@@ -111,14 +111,8 @@ if (cv) {
     overlay = null;
   }
 
-  /* CHRISTMAS: snow effect (DOM flakes) */
-  function makeSnowflake() {
-    // Christmas snowflakes disabled — use Halloween particles instead.
-    // Preserve API but delegate to Halloween particle generator for consistency.
-    makeHParticle();
-  }
 
-  /* HALLOWEEN: floating orange particles */
+  /* floating orange particles */
   function makeHParticle() {
     const c = createOverlay();
     const p = document.createElement('div');
@@ -134,7 +128,7 @@ if (cv) {
     setTimeout(() => p.remove(), 11000);
   }
 
-  /* CHRISTMAS: now maps to the site's main particle style (Halloween) */
+  /* Particle Style */
   function makeCParticle() {
     // Christmas particle generator removed — delegate to Halloween particle.
     makeHParticle();
