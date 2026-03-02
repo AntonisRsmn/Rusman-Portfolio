@@ -4,6 +4,11 @@
     <!-- Basic meta -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
+    <!-- Performance: DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://formspree.io" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    
     <title>Antonios Rusman | Web Developer & Designer — Athens, Greece</title>
     <meta
       name="description"
@@ -13,27 +18,19 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="Imgs/Rusman.webp" />
 
-    <!-- Fonts (Inter) -->
+    <!-- Fonts (Inter) - Preconnect before stylesheet for optimal loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
 
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-606VQRRJ64"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-606VQRRJ64');
-    </script>
+    <!-- AOS (Animate On Scroll) Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2/dist/aos.css" />
 
     <!-- Open Graph / Social metadata -->
     <meta
@@ -152,17 +149,17 @@
       <section class="hero">
         <div class="hero-grid">
           <!-- Intro / headline -->
-          <div class="intro">
-            <h1 class="reveal">
-              <span id="hero-title" class="name">Antonios Rusman</span> — Web Developer / Designer
+          <div class="intro" data-aos="fade-up">
+            <h1 class="reveal" data-aos="fade-up" data-aos-delay="100">
+              <span id="hero-title" class="name">Antonios Rusman</span><span class="title-subtitle"> — Web Developer / Designer</span>
             </h1>
-            <p class="lead reveal">
+            <p class="lead reveal" data-aos="fade-up" data-aos-delay="200">
               I build fast, modern websites that help businesses grow online.
             </p>
 
             <!-- Roles / quick skills -->
-            <div style="margin-top: 22px" class="reveal">
-              <div style="display: flex; gap: 12px; flex-wrap: wrap">
+            <div style="margin-top: 22px" class="reveal" id="roles">
+              <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
                 <div class="role">Front-End / Back-End Development</div>
                 <div class="role">UI / UX Design</div>
                 <div class="role">E-commerce</div>
@@ -170,19 +167,19 @@
             </div>
 
             <!-- Call to action -->
-            <div class="cta reveal">
+            <div class="cta reveal" data-aos="fade-up" data-aos-delay="300">
               <a class="btn primary" href="#contact">Hire me</a>
               <a class="btn" href="#projects">See projects</a>
             </div>
 
             <!-- Social links -->
-            <div style="margin-top: 26px" class="reveal connect">
+            <div style="margin-top: 26px" class="reveal connect" data-aos="fade-up" data-aos-delay="400">
               <span class="muted">Connect —</span>
               <a href="https://github.com/AntonisRsmn" target="_blank" rel="noopener">GitHub</a>
               ·
               <a href="https://www.linkedin.com/in/antonis-rusman-a46424319/" target="_blank" rel="noopener">LinkedIn</a>
               ·
-              <a href
+              <a href="https://instagram.com/_.rusman._" target="_blank" rel="noopener">Instagram</a>
               ·
               <a href="mailto:info@rusman.gr" title="Email">Email</a>
             </div>
@@ -209,6 +206,7 @@
                   flex-wrap: wrap;
                   gap: 8px;
                   margin-top: 10px;
+                  justify-content: center;
                 "
               >
                 <span class="role">HTML</span>
@@ -313,7 +311,6 @@
               <span class="role">Figma</span>
               <span class="role">GitHub</span>
               <span class="role">npm</span>
-              <span class="role">Node.js</span>
             </div>
           </div>
 
@@ -451,188 +448,27 @@
       </footer>
     </main>
 
-    <!-- AOS (Animation on Scroll) -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
     <!-- Main site script (deferred) -->
     <script src="script.js" defer></script>
 
-    <!-- Inline scripts: carousel, theme toggle, misc -->
+    <!-- AOS (Animate On Scroll) Script -->
+    <script src="https://unpkg.com/aos@2/dist/aos.js"></script>
     <script>
-      /* Initialize AOS animations */
-      AOS.init();
-
-      /* DOM ready: build carousel and handle responsive visible count */
-      document.addEventListener("DOMContentLoaded", function () {
-        // Determine how many projects to show at once based on viewport width
-        function getVisibleCount() {
-          return window.innerWidth <= 890 ? 1 : 3;
-        }
-
-        // Projects data (icons, titles, descriptions, links)
-        const allProjects = [
-          {
-            icon: "Imgs/ryvex-logo.webp",
-            title: "Ryvex",
-            desc:
-              "Ryvex is a discord bot built to help you manage your discord server and also the members.",
-            link: "https://ryvex.gr",
-          },
-          {
-            icon: "Imgs/betl-logo.webp",
-            title: "Betl",
-            desc:
-              "Betl provides innovative battery solutions focused on mobile and on-the-go charging.",
-            link: "https://antonisrsmn.github.io/Betl-Greece/",
-          },
-          {
-            icon: "Imgs/Unlike-Logo-White.webp",
-            title: "Unlike",
-            desc:
-              "A real-time global chat platform for open, secure, and anonymous communication online.",
-            link: "https://unlike.gr",
-          },
-          {
-            icon: "Imgs/eshop-img.webp",
-            title: "E-Shop Template",
-            desc:
-              "Modern e-shop template with responsive design and clean code structure.",
-            link: "https://antonisrsmn.github.io/Eshop-Template/",
-          },
-          {
-            icon: "Imgs/stefania.webp",
-            title: "Στεφανια Δρακου",
-            desc:
-              "A clean and modern website designed for a psychology professional, highlighting services.",
-            link: "https://stefaniadrakou.gr/",
-          },
-          {
-            icon: "Imgs/weather-app.webp",
-            title: "Weather App",
-            desc:
-              "Live weather updates with a clean design and accurate real-time data integration.",
-            link: "https://antonisrsmn.github.io/Weather-App/",
-          },
-          {
-            icon: "Imgs/Calculator.webp",
-            title: "Calculator",
-            desc:
-              "Clean, minimalist calculator app built for precision, simplicity, and consistent performance.",
-            link: "https://antonisrsmn.github.io/Calculator-App/",
-          },
-          {
-            icon: "Imgs/favicon.svg",
-            title: "Barber Salon",
-            desc:
-              "A modern website showcasing services, pricing, and online booking with an admin page for managing appointments.",
-            link: "https://appointments-app-ruuu.onrender.com/",
-          },
-        ];
-
-        let currentProject = 0; // index of the first visible project
-        const carousel = document.getElementById("carouselProjects");
-
-        // Render visible projects starting from startIndex
-        function renderProjects(startIndex) {
-          const visibleCount = getVisibleCount();
-          let html = "";
-          for (let i = 0; i < visibleCount; i++) {
-            const idx = (startIndex + i) % allProjects.length;
-            const p = allProjects[idx];
-            html += `
-              <div class="project">
-                <div class="project-icon">
-                  <img src="${p.icon}" alt="${p.title} Logo" loading="lazy">
-                </div>
-                <h3>${p.title}</h3>
-                <p>${p.desc}</p>
-                <a class="btn primary" href="${p.link}" target="_blank" rel="noopener">Website</a>
-              </div>
-            `;
-          }
-          carousel.innerHTML = html;
-        }
-
-        // Next / Prev navigation handlers
-        document.getElementById("nextProject").onclick = function () {
-          currentProject = (currentProject + 1) % allProjects.length;
-          renderProjects(currentProject);
-        };
-
-        document.getElementById("prevProject").onclick = function () {
-          currentProject =
-            (currentProject - 1 + allProjects.length) % allProjects.length;
-          renderProjects(currentProject);
-        };
-
-        // Re-render on resize to adjust visibleCount
-        window.addEventListener("resize", () => renderProjects(currentProject));
-
-        // Initial render
-        renderProjects(currentProject);
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
       });
-
-      /* Preload project images for smoother carousel experience */
-      (function preloadProjectImages() {
-        const projectImages = [
-          "Imgs/ryvex-logo.webp",
-          "Imgs/betl-logo.webp",
-          "Imgs/Unlike-Logo-White.webp",
-          "Imgs/eshop-img.webp",
-          "Imgs/stefania.webp",
-          "Imgs/weather-app.webp",
-          "Imgs/Calculator.webp",
-        ];
-        projectImages.forEach((src) => {
-          const img = new Image();
-          img.src = src;
-        });
-      })();
     </script>
 
+    <!-- Google Analytics (moved to end for performance) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-606VQRRJ64"></script>
     <script>
-      /* Theme toggle (light / dark) */
-      const toggleBtn = document.querySelector("#theme-toggle");
-      const body = document.body;
-
-      // Update button icon based on theme class
-      function updateThemeIcon() {
-        if (body.classList.contains("light-theme")) {
-          toggleBtn.textContent = "🌞"; // icon for light mode
-        } else {
-          toggleBtn.textContent = "🌙"; // icon for dark mode
-        }
-      }
-
-      // Load saved theme preference (localStorage)
-      if (localStorage.getItem("theme") === "light") {
-        body.classList.add("light-theme");
-      } else {
-        body.classList.remove("light-theme");
-      }
-      updateThemeIcon();
-
-      // Toggle theme and persist preference
-      toggleBtn.addEventListener("click", () => {
-        body.classList.toggle("light-theme");
-
-        if (body.classList.contains("light-theme")) {
-          localStorage.setItem("theme", "light");
-        } else {
-          localStorage.setItem("theme", "dark");
-        }
-
-        updateThemeIcon();
-      });
-
-      /* Footer year auto-fill */
-      (function setFooterYear() {
-        const yearEl = document.getElementById("year");
-        if (yearEl) {
-          yearEl.textContent = new Date().getFullYear();
-        }
-      })();
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-606VQRRJ64');
     </script>
   </body>
 </html>

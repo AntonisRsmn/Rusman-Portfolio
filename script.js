@@ -203,3 +203,123 @@ if (cv) {
   });
 })();
 
+// Carousel functionality
+(function initCarousel() {
+  function getVisibleCount() {
+    return window.innerWidth <= 890 ? 1 : 3;
+  }
+
+  const allProjects = [
+    {
+      icon: "Imgs/ryvex-logo.webp",
+      title: "Ryvex",
+      desc: "Ryvex is a discord bot built to help you manage your discord server and also the members.",
+      link: "https://ryvex.gr",
+    },
+    {
+      icon: "Imgs/betl-logo.webp",
+      title: "Betl",
+      desc: "Betl provides innovative battery solutions focused on mobile and on-the-go charging.",
+      link: "https://antonisrsmn.github.io/Betl-Greece/",
+    },
+    {
+      icon: "Imgs/Unlike-Logo-White.webp",
+      title: "Unlike",
+      desc: "A real-time global chat platform for open, secure, and anonymous communication online.",
+      link: "https://unlike.gr",
+    },
+    {
+      icon: "Imgs/eshop-img.webp",
+      title: "E-Shop Template",
+      desc: "Modern e-shop template with responsive design and clean code structure.",
+      link: "https://antonisrsmn.github.io/Eshop-Template/",
+    },
+    {
+      icon: "Imgs/stefania.webp",
+      title: "Στεφανια Δρακου",
+      desc: "A clean and modern website designed for a psychology professional, highlighting services.",
+      link: "https://stefaniadrakou.gr/",
+    },
+    {
+      icon: "Imgs/weather-app.webp",
+      title: "Weather App",
+      desc: "Live weather updates with a clean design and accurate real-time data integration.",
+      link: "https://antonisrsmn.github.io/Weather-App/",
+    },
+    {
+      icon: "Imgs/Calculator.webp",
+      title: "Calculator",
+      desc: "Clean, minimalist calculator app built for precision, simplicity, and consistent performance.",
+      link: "https://antonisrsmn.github.io/Calculator-App/",
+    },
+    {
+      icon: "Imgs/favicon.svg",
+      title: "Barber Salon",
+      desc: "A modern website showcasing services, pricing, and online booking with an admin page for managing appointments.",
+      link: "https://appointments-app-ruuu.onrender.com/",
+    },
+  ];
+
+  let currentProject = 0;
+  const carousel = document.getElementById("carouselProjects");
+
+  function renderProjects(startIndex) {
+    if (!carousel) return;
+    const visibleCount = getVisibleCount();
+    let html = "";
+    for (let i = 0; i < visibleCount; i++) {
+      const idx = (startIndex + i) % allProjects.length;
+      const p = allProjects[idx];
+      html += `
+        <div class="project">
+          <div class="project-icon">
+            <img src="${p.icon}" alt="${p.title} Logo" loading="lazy">
+          </div>
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <a class="btn primary" href="${p.link}" target="_blank" rel="noopener">Website</a>
+        </div>
+      `;
+    }
+    carousel.innerHTML = html;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const nextBtn = document.getElementById("nextProject");
+    const prevBtn = document.getElementById("prevProject");
+
+    if (nextBtn) {
+      nextBtn.onclick = function () {
+        currentProject = (currentProject + 1) % allProjects.length;
+        renderProjects(currentProject);
+      };
+    }
+
+    if (prevBtn) {
+      prevBtn.onclick = function () {
+        currentProject = (currentProject - 1 + allProjects.length) % allProjects.length;
+        renderProjects(currentProject);
+      };
+    }
+
+    window.addEventListener("resize", () => renderProjects(currentProject));
+    renderProjects(currentProject);
+  });
+
+  // Preload project images
+  (function preloadProjectImages() {
+    const projectImages = [
+      "Imgs/ryvex-logo.webp",
+      "Imgs/betl-logo.webp",
+      "Imgs/Unlike-Logo-White.webp",
+      "Imgs/eshop-img.webp",
+      "Imgs/stefania.webp",
+      "Imgs/weather-app.webp",
+      "Imgs/Calculator.webp",
+    ];
+    projectImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  })();
+})();
