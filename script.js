@@ -258,6 +258,12 @@ if (cv) {
       desc: "A modern website showcasing services, pricing, and online booking with an admin page for managing appointments.",
       link: "https://appointments-app-ruuu.onrender.com/",
     },
+    {
+      icon: "Imgs/favicon-blog.svg",
+      title: "Blog",
+      desc: "A modern blog sharing insights, ideas, and practical knowledge on technology, lifestyle, and everyday inspiration.",
+      link: "https://blog-post-t28l.onrender.com/",
+    },
   ];
 
   let currentProject = 0;
@@ -316,6 +322,8 @@ if (cv) {
       "Imgs/stefania.webp",
       "Imgs/weather-app.webp",
       "Imgs/Calculator.webp",
+      "Imgs/favicon.svg",
+      "Imgs/favicon-blog.svg",
     ];
     projectImages.forEach((src) => {
       const img = new Image();
